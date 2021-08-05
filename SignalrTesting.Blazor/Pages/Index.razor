@@ -1,0 +1,81 @@
+﻿@page "/"
+@using Microsoft.AspNetCore.SignalR.Client
+@using System.Threading
+@using System.Collections.Concurrent
+@using System.ComponentModel.DataAnnotations
+
+<div class="chat_window">
+    <div class="top_menu">
+        <div class="buttons">
+            <div class="button close"></div>
+            <div class="button minimize"></div>
+            <div class="button maximize"></div>
+        </div>
+        <div class="title">Chat</div>
+    </div>
+    <ul class="messages">
+
+        @foreach (var message in _messages)
+        {
+            <li class="message appeared @message.Side">
+                <div class="avatar"></div>
+                <div class="text_wrapper">
+                    <div class="text text-@message.Side">@message.Text @message.SubmittedStatus</div>
+                </div>
+            </li>
+        }
+
+    </ul>
+    <EditForm Model="@_exampleModel" OnValidSubmit="@Send">
+
+        <div class="bottom_wrapper clearfix">
+            <div class="message_input_wrapper">
+                <input class="message_input" placeholder="Type your message here..." @bind-value="@_exampleModel.MessageInput"/>/>
+            </div>
+            <div class="send_message">
+                <div class="icon"></div>
+                <div class="text" @onclick="Send" disabled="@(!IsConnected)">Send</div>
+            </div>
+        </div>
+    </EditForm>
+</div>
+
+@code {
+    private HubConnection _hubConnection;
+    private List<MessageModel> _messages = new();
+    private readonly ConcurrentDictionary<int, MessageModel> _notSubmittedMessages = new();
+
+    private readonly string ServerUrl = "https://localhost:5001/chathub";
+
+
+    int _requestId;
+
+
+    private async Task Send()
+    {
+        if (_exampleModel.MessageInput == string.Empty)
+        {
+            return;
+        }
+
+        var id = Interlocked.Increment(ref _requestId);
+        await _hubConnection.SendAsync("SendMessage", id, _exampleModel.MessageInput);
+
+        var messageModel = new MessageModel(null, _exampleModel.MessageInput, false, MessageState.NotSubmitted);
+
+        _messages.Add(messageModel);
+        _notSubmittedMessages[id] = messageModel;
+
+        _exampleModel.MessageInput = string.Empty;
+    }
+
+    private bool IsConnected => _hubConnection?.State == HubConnectionState.Connected;
+    private readonly ExampleModel _exampleModel = new();
+
+    class ExampleModel
+    {
+        [Required]
+        public string MessageInput { get; set; }
+    }
+
+}

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalrTesting.Api", "SignalrTesting.Api\SignalrTesting.Api.csproj", "{F93FB523-B115-477E-9E9F-C287E16F5912}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalrTesting.Blazor", "SignalrTesting.Blazor\SignalrTesting.Blazor.csproj", "{9DE36440-0139-451D-A80A-CF6AECF84D64}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalrTesting.Tests", "SignalrTesting.Tests\SignalrTesting.Tests.csproj", "{844D7FF2-F334-4228-9F14-30D4C4698F40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F93FB523-B115-477E-9E9F-C287E16F5912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F93FB523-B115-477E-9E9F-C287E16F5912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F93FB523-B115-477E-9E9F-C287E16F5912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F93FB523-B115-477E-9E9F-C287E16F5912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DE36440-0139-451D-A80A-CF6AECF84D64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DE36440-0139-451D-A80A-CF6AECF84D64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DE36440-0139-451D-A80A-CF6AECF84D64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DE36440-0139-451D-A80A-CF6AECF84D64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844D7FF2-F334-4228-9F14-30D4C4698F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844D7FF2-F334-4228-9F14-30D4C4698F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844D7FF2-F334-4228-9F14-30D4C4698F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844D7FF2-F334-4228-9F14-30D4C4698F40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

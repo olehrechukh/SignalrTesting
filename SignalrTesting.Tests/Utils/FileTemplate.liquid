@@ -1,0 +1,26 @@
+﻿using System;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR.Client;
+{% for reference in references -%}
+using {{ reference }};
+{% endfor %}
+namespace SignalrTesting.Tests.Utils
+{
+    public class {{ Name }}
+    {
+        private readonly HubConnection _connection;
+
+        public {{ Name }}(HubConnection connection)
+        {
+            _connection = connection;
+        }
+
+{% for operation in hubMethods -%}
+        public Task {{ operation.Name }}({% for parameter in operation.Parameters %}{{ parameter.Type }} {{ parameter.Name }}{% if forloop.last == false %}, {% endif %}{% endfor %})
+        {
+            return _connection.SendAsync("{{ operation.Name }}"{% for parameter in operation.Parameters %}, {{ parameter.Name }}{% endfor %});
+        }{% if forloop.last == false %}
+		
+{% endif %}{% endfor %}
+    }
+}
