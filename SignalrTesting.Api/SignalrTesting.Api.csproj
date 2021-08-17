@@ -5,8 +5,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client.Core" Version="5.0.9" />
         <PackageReference Include="SigSpec.CodeGeneration" Version="0.2.0" />
         <PackageReference Include="SigSpec.Core" Version="0.2.0" />
+
+
+        <ProjectReference Include="..\SourceGeneratorGen\SourceGeneratorGen.csproj" ReferenceOutputAssembly="false" OutputItemType="Analyzer" />
     </ItemGroup>
 
     <ItemGroup>

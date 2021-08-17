@@ -16,7 +16,6 @@ namespace SignalrTesting.Tests.Utils
 
         private static string GenerateClient(Type type)
         {
-
             var enumerateHubMethods = GetOperationMethods(type, false).ToList();
 
             var hubMethods = enumerateHubMethods
@@ -30,12 +29,19 @@ namespace SignalrTesting.Tests.Utils
                 .Distinct()
                 .ToList();
 
-            var template = Template.Parse(File.ReadAllText(@"Utils\FileTemplate.liquid")); // Parses and compiles the template
+            var render = GenerateClient(type.Name, hubMethods, references);
 
-            var name = $"{type.Name}Client";
+            return render;
+        }
+
+        public static string GenerateClient(string hubName, List<HubMethod> hubMethods, List<string> references)
+        {
+            var template =
+                Template.Parse(File.ReadAllText(@"Utils\FileTemplate.liquid")); // Parses and compiles the template
+
+            var name = $"{hubName}Client";
             var fromAnonymousObject = Hash.FromAnonymousObject(new {hubMethods, references, name});
             var render = template.Render(fromAnonymousObject);
-
             return render;
         }
 
@@ -77,20 +83,20 @@ namespace SignalrTesting.Tests.Utils
         };
 
         private static string GetReturnValue(MethodInfo method) => method.ReturnType.ToString();
+    }
 
-        private class HubMethod : Drop
-        {
-            public string ReturnValue { get; init; }
-            public string Name { get; init; }
-            public List<Parameter> Parameters { get; init; }
-        }
+    public class HubMethod : Drop
+    {
+        public string ReturnValue { get; init; }
+        public string Name { get; init; }
+        public List<Parameter> Parameters { get; init; }
+    }
 
-        private class Parameter : Drop
-        {
-            public string Type { get; init; }
-            public string Name { get; init; }
+    public class Parameter : Drop
+    {
+        public string Type { get; init; }
+        public string Name { get; init; }
 
-            public string Namespace { get; init; }
-        }
+        public string Namespace { get; init; }
     }
 }

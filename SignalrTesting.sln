@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalrTesting.Blazor", "Si
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalrTesting.Tests", "SignalrTesting.Tests\SignalrTesting.Tests.csproj", "{844D7FF2-F334-4228-9F14-30D4C4698F40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SourceGeneratorGen", "SourceGeneratorGen\SourceGeneratorGen.csproj", "{603D4EE3-850F-4F38-B1AF-6F6C82C4D37C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{844D7FF2-F334-4228-9F14-30D4C4698F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{844D7FF2-F334-4228-9F14-30D4C4698F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{844D7FF2-F334-4228-9F14-30D4C4698F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{603D4EE3-850F-4F38-B1AF-6F6C82C4D37C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{603D4EE3-850F-4F38-B1AF-6F6C82C4D37C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{603D4EE3-850F-4F38-B1AF-6F6C82C4D37C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{603D4EE3-850F-4F38-B1AF-6F6C82C4D37C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

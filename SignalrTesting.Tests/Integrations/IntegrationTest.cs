@@ -53,11 +53,11 @@ namespace SignalrTesting.Tests.Integrations
         {
             var requestId = 10;
             var waitTask = _hubInput.WaitSubmit(requestId, TimeSpan.FromSeconds(1));
-            // await _chatHubClient1.SendMessage(requestId, "message");
+            await _chatHubClient1.SendMessage(requestId, "message");
 
             var task = await waitTask;
 
-            await Task.Delay(1000);
+            task.Should().NotBe(0);
         }
 
         public Task DisposeAsync() => Task.CompletedTask;
