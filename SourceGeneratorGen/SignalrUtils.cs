@@ -7,7 +7,7 @@ namespace SourceGeneratorGen
 {
     public class SignalrUtils
     {
-        public static string GenerateClient(string hubName, List<HubMethod> hubMethods)
+        public static string GenerateClient(string hubName, string @namespace, List<HubMethod> hubMethods)
         {
             var systemReferences = new[]
                 {"System", "System.Threading.Tasks", "Microsoft.AspNetCore.SignalR.Client"};
@@ -25,7 +25,7 @@ namespace SourceGeneratorGen
 
             var result = $@"{references}
 
-namespace SignalrTesting.Tests.Utils
+namespace {@namespace}
 {{
     public class {hubName}
     {{

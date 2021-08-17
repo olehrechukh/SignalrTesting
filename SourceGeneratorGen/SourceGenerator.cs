@@ -57,7 +57,8 @@ namespace SourceGeneratorGen
                 }).ToList();
 
                 var hubName = $"{candidate.Identifier.Text}Client";
-                var generateClient = SignalrUtils.GenerateClient(hubName, methods);
+                var @namespace = type.ContainingNamespace.ToString();
+                var generateClient = SignalrUtils.GenerateClient(hubName, @namespace, methods);
                 context.AddSource($"{hubName}.cs", SourceText.From(generateClient, Encoding.UTF8));
             }
         }

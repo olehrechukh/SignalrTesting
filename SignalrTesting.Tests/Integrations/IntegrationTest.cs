@@ -5,7 +5,6 @@ using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.SignalR.Client;
 using SignalrTesting.Api;
-using SignalrTesting.Tests.Utils;
 using Xunit;
 
 namespace SignalrTesting.Tests.Integrations
