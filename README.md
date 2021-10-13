@@ -1,6 +1,7 @@
 # Strogly signalr client for testing
 
 **Experimental API endpoint specification** and code generator for [SignalR Core](https://github.com/aspnet/SignalR).
+
 **SourceGeneratorGen** is linked to API SignalR [source generator](https://devblogs.microsoft.com/dotnet/introducing-c-source-generators/).
 
 Run **SignalrTesting.Api** to generated c# Client Code code.
