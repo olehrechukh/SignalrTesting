@@ -1,4 +1,4 @@
-# Strogly signalr client for testing
+# Strongly typed signalr client for testing
 
 **Experimental API endpoint specification** and code generator for [SignalR Core](https://github.com/aspnet/SignalR).
 
